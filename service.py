@@ -5,54 +5,36 @@ import os
 load_dotenv()
 API_KEY = os.getenv("API_KEY")
 
-def get_news():
-    """
-    Get top headlines for tech news
-    """
-    query_params = {
-        "category": "technology",
-        "pageSize": "5",
-        "to": "2026-11-20",
-        "searchIn": "title, content, description",
-    }
 
-    headers = {"Authorization": API_KEY}
+def get_custom_news(
+    category: str = None, params: dict = None, endpoint: str = "top-headlines"
+):
+    """
+    Get news using args
+    """
+    combined_params = {}
+    if category:
+        combined_params["category"] = category
+    if params:
+        combined_params.update(params)
 
     base_url = "https://newsapi.org/v2/"
-    path_top_headlines = "top-headlines"
-
-    response = requests.get(
-        base_url + path_top_headlines, params=query_params, headers=headers
-    )
-    return response
-
-
-def get_all_categories_news():
-    """
-    Fetch news from multiple categories
-    """
-    query_params = {
-        # wired-de
-        # the-sport-bible
-        # "techcrunch-cn",
-        # "techradar",
-        # "recode",
-        # "new-scientist",
-        # "national-geographic"
-        # "ign"
-        "sources": "the-sport-bible",
-        "pageSize": "20",
-        # "to": "2026-11-20",
-    }
 
     headers = {"Authorization": API_KEY}
+    try:
+        response = requests.get(
+            base_url + endpoint,
+            params=combined_params,
+            headers=headers,
+            timeout=(3, 10),
+        )
 
-    base_url = "https://newsapi.org/v2/"
-    path_top_headlines = "top-headlines"
+        response.raise_for_status()
+        return response.json()
+    except requests.Timeout:
+        print("NewsAPI request timed out")
+        return {"articles": []}
 
-    response = requests.get(
-        base_url + path_top_headlines, params=query_params, headers=headers
-    )
-    return response
-
-# TODO: convert desired url path to be interchangeable, cut down duplication
+    except requests.RequestException:
+        print("NewsAPI request failed")
+        return {"articles": []}

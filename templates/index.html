@@ -121,17 +121,80 @@
 
 <body>
     <h1>News 4 me</h1>
-    {% if results %}
+    <h2>Tech</h2>
+    {% if results_tech %}
     <ul class="results">
-        {% for item in results %}
+        {% for item in results_tech %}
         <li class="result-item">
-            {% if item.urlToImage %}
-            <img src="{{ item.urlToImage }}" width="100px" height="100px" alt="{{item.title}}">
-            {% endif %}
+            <!-- {% if item.urlToImage %}
+            <img src="{{ item.urlToImage }}" width="100" height="100" alt="{{item.title}}">
+            {% endif %} -->
             <div class="result-content">
                 <h3>{{ item.title }}</h3>
-                <h5>{{ item.description }}</h5>
-                <p>{{ item.content }}</p>
+                <p>{{ item.description }}</p>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <div class="empty-state">
+        <h3>No results found</h3>
+        <p>There are currently no results to display.</p>
+    </div>
+    {% endif %}
+    <h2>Sports</h2>
+    {% if results_sports %}
+    <ul class="results">
+        {% for item in results_sports %}
+        <li class="result-item">
+            <!-- {% if item.urlToImage %}
+            <img src="{{ item.urlToImage }}" width="100" height="100" alt="{{item.title}}">
+            {% endif %} -->
+            <div class="result-content">
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.description }}</p>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <div class="empty-state">
+        <h3>No results found</h3>
+        <p>There are currently no results to display.</p>
+    </div>
+    {% endif %}
+    <h2>Greek/Germany/Europe</h2>
+    {% if results_eu %}
+    <ul class="results">
+        {% for item in results_eu %}
+        <li class="result-item">
+            <!-- {% if item.urlToImage %}
+            <img src="{{ item.urlToImage }}" width="100" height="100" alt="{{item.title}}">
+            {% endif %} -->
+            <div class="result-content">
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.description }}</p>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <div class="empty-state">
+        <h3>No results found</h3>
+        <p>There are currently no results to display.</p>
+    </div>
+    {% endif %}
+    <h2>Dinosaurs</h2>
+    {% if results_dinosaurs %}
+    <ul class="results">
+        {% for item in results_dinosaurs %}
+        <li class="result-item">
+            <!-- {% if item.urlToImage %}
+            <img src="{{ item.urlToImage }}" width="100" height="100" alt="{{item.title}}">
+            {% endif %} -->
+            <div class="result-content">
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.description }}</p>
             </div>
         </li>
         {% endfor %}
