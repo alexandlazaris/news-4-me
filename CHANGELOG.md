@@ -1,6 +1,19 @@
 # CHANGELOG
 
 
+## v1.1.0 (2026-11-27)
+
+### Continuous Integration
+
+- Release flow updated
+  ([`d38edae`](https://github.com/alexandlazaris/news-4-me/commit/d38edae7e81377372a294ef892511832f8390f31))
+
+### Features
+
+- Ci is ready
+  ([`6cb8dce`](https://github.com/alexandlazaris/news-4-me/commit/6cb8dce10392d96b89f764774ddbb7c0483d6d20))
+
+
 ## v1.0.0 (2026-11-27)
 
 ### Continuous Integration
