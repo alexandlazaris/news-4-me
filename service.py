@@ -5,6 +5,8 @@ import os
 load_dotenv()
 API_KEY = os.getenv("API_KEY")
 
+# TODO: add caching logic here to limit API calls
+# prevent bots/bad actors from racking up API calls and overloading news server
 
 def get_custom_news(
     category: str = None, params: dict = None, endpoint: str = "top-headlines"

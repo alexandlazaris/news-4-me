@@ -17,7 +17,7 @@
 
         /* Main heading */
         h1 {
-            color: #ffffff;
+            color: #acacac;
             font-size: 28px;
             margin-bottom: 35px;
         }
@@ -25,7 +25,7 @@
         /* Category sections */
         .category {
             margin-bottom: 40px;
-            background-color: #1c1c1c;
+            background-color: #686868;
             padding: 20px;
             border-radius: 10px;
         }
@@ -44,29 +44,26 @@
             list-style: none;
             padding: 0;
             margin: 0;
+            background-color: #343434;
         }
 
         /* Individual result */
         .result-item {
             display: flex;
             align-items: center;
-            gap: 20px;
-            padding: 16px 0;
-            border-bottom: 1px solid #333333;
+            gap: 10px;
+            border: 3px solid #272727;
+            border-radius: 3px;
+            padding-bottom: 1%;
+            padding-top: 1%;
+            padding-right: 1%;
+            padding-left: 1%;
+            background-color: #141527;
         }
 
         /* Remove last divider */
         .result-item:last-child {
             border-bottom: none;
-        }
-
-        /* Result image */
-        .result-item img {
-            width: 120px;
-            height: 90px;
-            object-fit: cover;
-            border-radius: 8px;
-            flex-shrink: 0;
         }
 
         /* Result content */
@@ -75,7 +72,7 @@
         }
 
         .result-content h3 {
-            color: #f5f5f5;
+            color: #aaaaaa;
             font-size: 17px;
             margin: 0 0 8px;
         }
@@ -110,25 +107,21 @@
             .result-item {
                 gap: 12px;
             }
-
-            .result-item img {
-                width: 90px;
-                height: 75px;
-            }
         }
     </style>
 </head>
 
 <body>
     <h1>News 4 me</h1>
+    {% if count_of_articles_fetched %}
+    <p>Results: {{count_of_articles_fetched}}</p>
+    {% endif %}
+    <p></p>
     <h2>Tech</h2>
     {% if results_tech %}
     <ul class="results">
         {% for item in results_tech %}
         <li class="result-item">
-            <!-- {% if item.urlToImage %}
-            <img src="{{ item.urlToImage }}" width="100" height="100" alt="{{item.title}}">
-            {% endif %} -->
             <div class="result-content">
                 <h3>{{ item.title }}</h3>
                 <p>{{ item.description }}</p>
@@ -147,9 +140,6 @@
     <ul class="results">
         {% for item in results_sports %}
         <li class="result-item">
-            <!-- {% if item.urlToImage %}
-            <img src="{{ item.urlToImage }}" width="100" height="100" alt="{{item.title}}">
-            {% endif %} -->
             <div class="result-content">
                 <h3>{{ item.title }}</h3>
                 <p>{{ item.description }}</p>
@@ -168,9 +158,6 @@
     <ul class="results">
         {% for item in results_eu %}
         <li class="result-item">
-            <!-- {% if item.urlToImage %}
-            <img src="{{ item.urlToImage }}" width="100" height="100" alt="{{item.title}}">
-            {% endif %} -->
             <div class="result-content">
                 <h3>{{ item.title }}</h3>
                 <p>{{ item.description }}</p>
@@ -189,9 +176,6 @@
     <ul class="results">
         {% for item in results_dinosaurs %}
         <li class="result-item">
-            <!-- {% if item.urlToImage %}
-            <img src="{{ item.urlToImage }}" width="100" height="100" alt="{{item.title}}">
-            {% endif %} -->
             <div class="result-content">
                 <h3>{{ item.title }}</h3>
                 <p>{{ item.description }}</p>

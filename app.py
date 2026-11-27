@@ -58,12 +58,14 @@ def home():
     results_sports = get_sports_news.get("articles", [])
     results_eu = get_eu_news.get("articles", [])
     results_dinosaurs = get_dinosaur_news.get("articles", [])
+    count_of_articles_fetched = results_tech.__len__() + results_sports.__len__() + results_eu.__len__() + results_dinosaurs.__len__()
     return render_template(
         "index.html",
         results_tech=results_tech,
         results_sports=results_sports,
         results_eu=results_eu,
         results_dinosaurs=results_dinosaurs,
+        count_of_articles_fetched=count_of_articles_fetched
     )
 
 
